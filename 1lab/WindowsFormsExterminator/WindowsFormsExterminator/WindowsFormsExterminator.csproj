@@ -54,8 +54,11 @@
     <Compile Include="FormExterm.Designer.cs">
       <DependentUpon>FormExterm.cs</DependentUpon>
     </Compile>
+    <Compile Include="IPlane.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Simpleplane.cs" />
+    <Compile Include="Vehicle.cs" />
     <EmbeddedResource Include="FormExterm.resx">
       <DependentUpon>FormExterm.cs</DependentUpon>
     </EmbeddedResource>

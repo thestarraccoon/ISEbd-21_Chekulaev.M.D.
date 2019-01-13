@@ -34,6 +34,7 @@
 			this.buttonLeft = new System.Windows.Forms.Button();
 			this.pictureBoxExterminator = new System.Windows.Forms.PictureBox();
 			this.buttonCreate = new System.Windows.Forms.Button();
+			this.button1 = new System.Windows.Forms.Button();
 			((System.ComponentModel.ISupportInitialize)(this.pictureBoxExterminator)).BeginInit();
 			this.SuspendLayout();
 			// 
@@ -100,15 +101,26 @@
 			this.buttonCreate.Name = "buttonCreate";
 			this.buttonCreate.Size = new System.Drawing.Size(75, 23);
 			this.buttonCreate.TabIndex = 7;
-			this.buttonCreate.Text = "Создать";
+			this.buttonCreate.Text = "Самолет";
 			this.buttonCreate.UseVisualStyleBackColor = true;
 			this.buttonCreate.Click += new System.EventHandler(this.buttonCreate_Click);
+			// 
+			// button1
+			// 
+			this.button1.Location = new System.Drawing.Point(183, 13);
+			this.button1.Name = "button1";
+			this.button1.Size = new System.Drawing.Size(94, 23);
+			this.button1.TabIndex = 8;
+			this.button1.Text = "Истребитель";
+			this.button1.UseVisualStyleBackColor = true;
+			this.button1.Click += new System.EventHandler(this.buttonCreateExterminator_Click);
 			// 
 			// FormExterm
 			// 
 			this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
 			this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
 			this.ClientSize = new System.Drawing.Size(1320, 542);
+			this.Controls.Add(this.button1);
 			this.Controls.Add(this.buttonCreate);
 			this.Controls.Add(this.buttonDown);
 			this.Controls.Add(this.buttonRight);
@@ -132,6 +144,7 @@
 		private System.Windows.Forms.Button buttonRight;
 		private System.Windows.Forms.Button buttonDown;
 		private System.Windows.Forms.Button buttonCreate;
+		private System.Windows.Forms.Button button1;
 	}
 }
 

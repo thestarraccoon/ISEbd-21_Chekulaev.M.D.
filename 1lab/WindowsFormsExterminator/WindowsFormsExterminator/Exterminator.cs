@@ -8,42 +8,8 @@ using System.Drawing;
 
 namespace WindowsFormsExterminator
 {
-	public class Exterminator
+	public class Exterminator : Simpleplane
 	{
-		/// <summary>
-		/// Левая координата отрисовки автомобиля
-		/// </summary>
-		private float _startPosX;
-		/// <summary>
-		/// Правая кооридната отрисовки автомобиля
-		/// </summary>
-		private float _startPosY;
-		/// <summary>
-		/// Ширина окна отрисовки
-		/// </summary>
-		private int _pictureWidth;
-		//Высота окна отрисовки
-		private int _pictureHeight;
-		/// <summary>
-		/// Ширина отрисовки автомобиля
-		/// </summary>
-		private const int extermWidth = 170;
-		/// <summary>
-		/// Ширина отрисовки автомобиля
-		/// </summary>
-		private const int extermHeight = 160;
-		/// <summary>
-		/// Максимальная скорость
-		/// </summary>
-		public int MaxSpeed { private set; get; }
-		/// <summary>
-		/// Вес автомобиля
-		/// </summary>
-		public float Weight { private set; get; }
-		/// <summary>
-		/// Основной цвет кузова
-		/// </summary>
-		public Color MainColor { private set; get; }
 		/// <summary>
 		/// Дополнительный цвет
 		/// </summary>
@@ -56,12 +22,11 @@ namespace WindowsFormsExterminator
 		/// <param name="mainColor">Основной цвет кузова</param>
 		/// <param name="dopColor">Дополнительный цвет</param>
 		public Exterminator(int maxSpeed, float weight, Color mainColor, Color dopColor, bool
-	   frontSpoiler, bool sideSpoiler, bool backSpoiler)
+	   frontSpoiler, bool sideSpoiler, bool backSpoiler) :
+			base(maxSpeed, weight, mainColor)
 		{
-			MaxSpeed = maxSpeed;
-			Weight = weight;
-			MainColor = mainColor;
 			DopColor = dopColor;
+
 		}
 		/// <summary>
 		/// Установка позиции автомобиля
@@ -83,7 +48,7 @@ namespace WindowsFormsExterminator
 		/// <param name="direction">Направление</param>
 
 
-		public void MoveTransport(Direction direction)
+		public override void MoveTransport(Direction direction)
 		{
 			float step = MaxSpeed * 100 / Weight;
 			switch (direction)
@@ -119,39 +84,24 @@ namespace WindowsFormsExterminator
 			}
 		}
 		/// <param name="g"></param>
-		public void DrawExterminator(Graphics g)
+		public override void DrawExterminator(Graphics g)
 		{
-			Pen pen = new Pen(Color.Black,2);
-			//1
-			g.DrawLine(pen, _startPosX + 100, _startPosY +110, _startPosX + 170, _startPosY + 120);
-			//2
-			g.DrawLine(pen, _startPosX + 100, _startPosY + 130, _startPosX + 170, _startPosY + 120);
-			//3
-			g.DrawLine(pen, _startPosX + 100, _startPosY + 110, _startPosX + 65, _startPosY + 80);
-			//4
-			g.DrawLine(pen, _startPosX + 100, _startPosY + 130, _startPosX + 65, _startPosY + 160);
-			//5
-			g.DrawLine(pen, _startPosX + 65, _startPosY + 80, _startPosX + 50, _startPosY + 95);
-			//6
-			g.DrawLine(pen, _startPosX + 65, _startPosY + 160, _startPosX + 50, _startPosY + 145);
-			//7
-			g.DrawLine(pen, _startPosX + 50, _startPosY + 95, _startPosX + 65, _startPosY + 110);
-			//8
-			g.DrawLine(pen, _startPosX + 50, _startPosY + 145, _startPosX + 65, _startPosY + 130);
-			//9
-			SolidBrush fillRect = new SolidBrush(Color.Blue);
-			g.DrawRectangle(pen, _startPosX + 40, _startPosY + 110, 25, 20);
-			g.FillRectangle(fillRect, _startPosX + 40, _startPosY + 110, 25, 20);
-			//10
-			g.DrawLine(pen, _startPosX + 40, _startPosY + 120, _startPosX + 25, _startPosY + 110);
-			//11
-			g.DrawLine(pen, _startPosX + 40, _startPosY + 120, _startPosX + 25, _startPosY + 130);
+			Pen pen = new Pen(Color.Black, 2);
 			//12
-			SolidBrush fillQuad = new SolidBrush(Color.Red);
+			SolidBrush fillQuad = new SolidBrush(Color.Green);
 			g.FillRectangle(fillQuad, _startPosX + 61, _startPosY + 90, 10, 10);
 			//13
 			SolidBrush fillQuadSec = new SolidBrush(Color.Red);
 			g.FillRectangle(fillQuad, _startPosX + 61, _startPosY + 140, 10, 10);
+			Pen pen1 = new Pen(Color.Black, 1);
+			SolidBrush fillRect = new SolidBrush(Color.Black);
+			g.FillRectangle(fillRect, _startPosX + 80, _startPosY + 90, 35, 3);
+			SolidBrush fillRect1 = new SolidBrush(Color.Black);
+			g.FillRectangle(fillRect, _startPosX + 80, _startPosY + 148, 35, 3);
+			SolidBrush fillEll = new SolidBrush(Color.Red);
+			g.FillEllipse(fillEll, _startPosX + 115, _startPosY + 87, 18, 8);
+			g.FillEllipse(fillEll, _startPosX + 115, _startPosY + 144, 18, 8);
+			base.DrawExterminator(g);
 		}
 	}
 }
